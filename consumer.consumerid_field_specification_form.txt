@@ -1,0 +1,60 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _  ConsumerID
+Parent Table:         _  Consumer
+Alias(es):            _  
+Specification Type:
+  Unique:  _ X _
+  Generic: _ 
+  Replica: _ 
+Source Specification: _ 
+Shared By:            _ 
+Description:          _ An auto-incrementing value that provides each consumer in the table with a unique id to identify them.
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _ Exact Numeric
+Length:               _ 10
+Decimal Places:       _ 
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _ X _
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ 
+               Primary:    _ X _
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ X _
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _ 
+               Unique:     _ X _
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   _ X _
+
+Values Entered By: User:   _ 
+                   System: _ X _
+
+Required Value:    No:     _ 
+                   Yes:    _ X _
+
+Range of Values:   _ (0 to 2,147,483,647)
+
+Edit Rule:
+  Enter now, edits allowed:       _ 
+  Enter now, edits not allowed:   _ X _
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+NOTES: _
