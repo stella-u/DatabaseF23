@@ -1,0 +1,60 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _  Address
+Parent Table:         _  Consumers
+Alias(es):            _  
+Specification Type:
+  Unique:  _ X _
+  Generic: _ 
+  Replica: _ 
+Source Specification: _ 
+Shared By:            _ 
+Description:          _ The street address of a consumer. This is one component of a full address, along with City, State, and Zipcode.
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _  Character
+Length:               _  64
+Decimal Places:       _  
+Character Support:
+  Letters (A-Z):      _ X _
+  Numbers (0-9):      _ X _
+  Keyboard (.,/$#%):  _ X _
+  Special (©®™Σπ):    _ X _
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ X _
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _ X _
+               Unique:     _ 
+
+Null Support:  Nulls OK:   _ X _
+               No nulls:   _ 
+
+Values Entered By: User:   _ X _
+                   System: _ 
+
+Required Value:    No:     _ X _ 
+                   Yes:    _ 
+
+Range of Values:   _ All addresses composed of valid character values
+
+Edit Rule:
+  Enter now, edits allowed:       _ X _
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     _ X _
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+NOTES: _
