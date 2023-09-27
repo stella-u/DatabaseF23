@@ -1,0 +1,55 @@
+BUSINESS RULE SPECIFICATIONS
+
+RULE INFORMATION
+
+Statement:  _ A customer is never deleted from the database
+
+Constraint: _ No deletion from the Customers table is allowed
+
+Type:     Database Oriented:     _ X _
+          Application Oriented   _ 
+
+Category: Field Specific:        _ 
+          Relationship Specific: _ X _
+
+Test On:  Insert:                _
+          Delete:                _ X _ 
+          Update:                _
+
+
+STRUCTURES AFFECTED
+
+Field Names: _
+
+Table Names: _ Customers
+
+
+FIELD ELEMENTS AFFECTED
+
+Physical Elements: Data Type:           _
+                   Length:              _ 
+                   Character Support:   _ 
+
+Logical Elements:  Key Type:            _ 
+                   Key Structure:       _ 
+                   Uniqueness:          _ 
+                   Null Support:        _ 
+                   Values Entered By:   _ 
+                   Range of Values:     _ 
+                   Edit Rule:           _
+
+
+RELATIONSHIP CHARACTERISTICS AFFECTED
+
+    Deletion rule:              _ X _
+    Type of participation:      _
+    Degree of participation:    _
+
+    
+ACTION TAKEN
+
+_ Deletion rule set to 'Deny'
+
+
+NOTES: _
+
