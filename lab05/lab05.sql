@@ -9,7 +9,7 @@ CREATE DATABASE flying_carpets;
 USE flying_carpets;
 
 CREATE TABLE rugs (
-    rug_id INT AUTO_INCREMENT NOT NULL,
+    rug_id INT AUTO_INCREMENT,
     rug_style VARCHAR(64),
     rug_year_made INT,
     country_id INT,
@@ -33,7 +33,7 @@ CREATE TABLE materials(
     PRIMARY KEY (material_id)
 );
 CREATE TABLE customers (
-    customer_id INT AUTO_INCREMENT NOT NULL,
+    customer_id INT AUTO_INCREMENT,
     customer_first_name VARCHAR(64),
     customer_last_name VARCHAR(64),
     street_address VARCHAR(64) NOT NULL,
@@ -58,8 +58,8 @@ CREATE TABLE purchases (
     sale_date VARCHAR(64),
     sale_price VARCHAR(64),
     return_date VARCHAR(64),
-    FOREIGN KEY (rug_id) REFERENCES rugs(rug_id) ON DELETE SET NULL,
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY rug_id REFERENCES rugs(rug_id) ON DELETE SET NULL,
+    FOREIGN KEY customer_id REFERENCES customers(customer_id),
     PRIMARY KEY (rug_id, customer_id)
 );
 
@@ -69,8 +69,8 @@ CREATE TABLE trials (
     trial_start_date VARCHAR(64),
     trial_expected_end_date VARCHAR(64),
     trial_end_date VARCHAR(64),
-    FOREIGN KEY (rug_id) REFERENCES rugs(rug_id) ON DELETE SET NULL,
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY rug_id REFERENCES rugs(rug_id) ON DELETE SET NULL,
+    FOREIGN KEY customer_id REFERENCES customers(customer_id),
     PRIMARY KEY (rug_id, customer_id)
 );
 
