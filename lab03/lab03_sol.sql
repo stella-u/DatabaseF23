@@ -7,25 +7,25 @@ and data on what movies consumers have seen. The database is then revised
 to be more usable and practical.
 */
 
-DROP DATABASE IF EXISTS movie_ratings; --checks for pre-existing database to avoid conflict
+DROP DATABASE IF EXISTS movie_ratings; -- checks for pre-existing database to avoid conflict
 CREATE DATABASE movie_ratings;
 USE movie_ratings;
 
 CREATE TABLE Movies(
     Primary Key (movie_id),
-    movie_id INT AUTO_INCREMENT, --a number to uniquely identify each movie
+    movie_id INT AUTO_INCREMENT, -- a number to uniquely identify each movie
     movie_title  VARCHAR(64),
     release_date VARCHAR(16),
     genre   VARCHAR(64)
 );
 CREATE TABLE Consumers(
     PRIMARY KEY (consumer_id),
-    consumer_id  INT AUTO_INCREMENT, -- a number to uniquely identify each consumer
+    consumer_id  INT AUTO_INCREMENT, --  a number to uniquely identify each consumer
     first_name VARCHAR(64),
     last_name  VARCHAR(64),
-    address  VARCHAR(64), --street address eg. "600 W Walnut St"
+    address  VARCHAR(64), -- street address eg. "600 W Walnut St"
     city    VARCHAR(64),
-    state   VARCHAR(8), --two letter abbreviation eg. "KY"
+    state   VARCHAR(8), -- two letter abbreviation eg. "KY"
     zipcode VARCHAR(8)
 );
 CREATE TABLE Ratings(
@@ -35,8 +35,8 @@ CREATE TABLE Ratings(
     number_stars INT,
     FOREIGN KEY (movie_id) REFERENCES Movies(movie_id), 
     FOREIGN KEY (consumer_id) REFERENCES Consumers(consumer_id),
-    -- establish that movie_id and consumer_id come from other tables
-    PRIMARY KEY (movie_id, consumer_id) -- creates composite primary key
+    --  establish that movie_id and consumer_id come from other tables
+    PRIMARY KEY (movie_id, consumer_id) --   creates composite primary key
 );
 
 INSERT INTO Movies(movie_title, release_date, genre)
@@ -61,10 +61,10 @@ VALUES
 (2, 3, '2017-03-27 00:12:48', 2),
 (2, 4, '2018-08-02 00:54:42', 4);
 
- SELECT first_name, last_name, movie_title, number_stars --values we want to see displayed
-    FROM Movies -- use Movies as base table
-        NATURAL JOIN Ratings --append specified information from Ratings to Movies
-        NATURAL JOIN Consumers; --append specified information from Consumers to Movies
+ SELECT first_name, last_name, movie_title, number_stars -- values we want to see displayed
+    FROM Movies --  use Movies as base table
+        NATURAL JOIN Ratings -- append specified information from Ratings to Movies
+        NATURAL JOIN Consumers; -- append specified information from Consumers to Movies
 
 /* A major flaw in our database is the Movies table. The field for Genre
 is multivalued, and this is creating overly complicated and unhelpful data.
@@ -72,7 +72,7 @@ The way we can fix this is by creating a seperate Genres table and
 a linking table between Genres and Movies */
 
 /* NEW DATABASE */
-DROP DATABASE IF EXISTS movie_ratings; --drops previous database created above
+DROP DATABASE IF EXISTS movie_ratings; -- drops previous database created above
 CREATE DATABASE movie_ratings;
 USE movie_ratings;
 
@@ -83,18 +83,18 @@ CREATE TABLE Movies(
     release_date VARCHAR(16)
 );
 
-CREATE TABLE Genres( --create new table Genres
+CREATE TABLE Genres( -- create new table Genres
     Primary Key (genre_id),
     genre_id INT Auto_INCREMENT,
-    genre_name VARCHAR(64) --genre values previously stored in Movies, eg. "Adventure"
+    genre_name VARCHAR(64) -- genre values previously stored in Movies, eg. "Adventure"
 );
 
-CREATE TABLE MovieGenre( --linking table for Genres and Movies
+CREATE TABLE MovieGenre( -- linking table for Genres and Movies
     movie_id INT,
     genre_id INT,
     FOREIGN KEY (movie_id) REFERENCES Movies(movie_id),
     FOREIGN KEY (genre_id) REFERENCES Genres(genre_id),
-    PRIMARY KEY (movie_id, genre_id) --composite primary key
+    PRIMARY KEY (movie_id, genre_id) -- composite primary key
 );
 
 CREATE TABLE Consumers(
