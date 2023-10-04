@@ -163,4 +163,6 @@ SOURCE MillerForkCrags.sql;
 
 -- Populate the climbs table with some routes!
 SOURCE RRGClimbs.sql;
-	
+
+--Submission Files
+	SOURCE all_owners.sql
