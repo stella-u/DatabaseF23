@@ -27,22 +27,22 @@
             } 
         ?>
         <h3> Tables in <?php echo htmlspecialchars($_POST['database']);?> : </h3>
-        </br>
-        <?php
-            $db = htmlspecialchars($_POST['database']);
-            $dbuse = "USE {$db}";
-            $conn->query($dbuse);
-            $dbtables = "SHOW tables";
-            $result = $conn->query($dbtables);
-            $i = 0;
-            while($tables = $result->fetch_array()){
-                if(isset($tables[$i])){
-                    echo $tables[$i] . "<br>";
-                    $i = $i + 1;
+        <ul>
+            <?php
+                $db = htmlspecialchars($_POST['database']);
+                $dbuse = "USE {$db}";
+                $conn->query($dbuse);
+                $dbtables = "SHOW tables";
+                $result = $conn->query($dbtables);
+                $i = 0;
+                while($tables = $result->fetch_array()){
+                    if(!empty($tables[$i])){
+                        echo "<li> {$tables[$i]} </li>";
+                        $i++;
+                    }
                 }
-            }
-            $conn->close();
-        ?>
-        <br>
+                $conn->close();
+            ?>
+        </ul>
     </body>
 </html>

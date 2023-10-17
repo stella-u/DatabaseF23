@@ -33,13 +33,15 @@
         ?>
         <br>
         <h4>Your databases are:</h4>
-        <?php
-            $dblist = "SHOW databases";
-            $result = $conn->query($dblist);
-            while($dbname = $result->fetch_array()){
-                echo $dbname['Database'] . "<br>";
-            }
-        ?>
+        <ul>
+            <?php
+                $dblist = "SHOW databases";
+                $result = $conn->query($dblist);
+                while($dbname = $result->fetch_array()){
+                    echo "<li> {$dbname['Database']} </li>";
+                }
+            ?>
+        </ul>
         <br>
         <form action="details.php" method="post">
 			<label for="database">Select a database to learn more about it:</label>
@@ -51,7 +53,7 @@
                     }
                     $conn->close();
                 ?>
-            </select>\
+            </select>
             <button type="submit">Submit</button>
 		</form>
     </body>
