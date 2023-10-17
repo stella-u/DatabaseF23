@@ -35,11 +35,9 @@
                 $dbtables = "SHOW tables";
                 $result = $conn->query($dbtables);
                 $i = 0;
-                while($tables = $result->fetch_array()){
-                    if(!empty($tables[$i])){
-                        echo "<li> {$tables[$i]} </li>";
-                        $i++;
-                    }
+                while($table = $result->fetch_array()){
+                    echo "<li> {$table[0]} </li>";
+                    $i++;
                 }
                 $conn->close();
             ?>
