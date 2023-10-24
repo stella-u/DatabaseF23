@@ -12,10 +12,13 @@
         ?>
         <?php
             //sets variables and connects to the database
-            $dbhost = 'localhost';
-            $dbuser = 'stella';
-            $dbpass = 'Hello';
-            $conn = new mysqli($dbhost, $dbuser, $dbpass);
+            $config = parse_ini_file('/home/william_bailey/mysql.ini');
+            $dbname = 'instrument_rentals';
+            $conn = new mysqli(
+                        $config['mysqli.default_host'],
+                        $config['mysqli.default_user'],
+                        $config['mysqli.default_pw'],
+                        $dbname)
         ?>
         <?php
             //checks that we've successfully connected and displays error message if not
