@@ -58,8 +58,8 @@ CREATE TABLE purchases (
     sale_date VARCHAR(64),
     sale_price VARCHAR(64),
     return_date VARCHAR(64),
-    FOREIGN KEY rug_id REFERENCES rugs(rug_id) ON DELETE SET NULL,
-    FOREIGN KEY customer_id REFERENCES customers(customer_id),
+    -- FOREIGN KEY (rug_id) REFERENCES rugs(rug_id) ON DELETE SET NULL,
+    -- FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
     PRIMARY KEY (rug_id, customer_id)
 );
 
@@ -69,16 +69,16 @@ CREATE TABLE trials (
     trial_start_date VARCHAR(64),
     trial_expected_end_date VARCHAR(64),
     trial_end_date VARCHAR(64),
-    FOREIGN KEY rug_id REFERENCES rugs(rug_id) ON DELETE SET NULL,
-    FOREIGN KEY customer_id REFERENCES customers(customer_id),
+    -- FOREIGN KEY (rug_id) REFERENCES rugs(rug_id) ON DELETE SET NULL,
+    -- FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
     PRIMARY KEY (rug_id, customer_id)
 );
 
-CREATE VIEW rug_used AS
-    SELECT *
-    FROM rugs
-        LEFT OUTER JOIN purchases
-        LEFT OUTER JOIN trials;
+-- CREATE VIEW rug_used AS
+--     SELECT *
+--     FROM rugs
+--         LEFT OUTER JOIN purchases
+--         LEFT OUTER JOIN trials;
 
 /* --------ENTER IN DATA----------- */
 INSERT INTO materials(material_name)
@@ -113,16 +113,16 @@ INSERT INTO rugs(country_id, rug_style, rug_year_made, rug_size, material_id,
 VALUES
     (4, 'Ushak', '1925', '5x7', 2, 625.00, '4/6/17', 100);
 
-INSERT INTO purchases(customer_id, rug_id, sale_date, sale_price, return_date)
-VALUES
-    (1, 1, '12/14/17', 990.00);
+-- INSERT INTO purchases(customer_id, rug_id, sale_date, sale_price, return_date)
+-- VALUES
+--     (1, 1, '12/14/17', 990.00);
 
-INSERT INTO trials (customer_id, rug_id, trial_start_date, trial_expected_end_date, trial_end_date)
-VALUES
-    (1, 1, '12/01/17', '12/18/17', '12/14/17');
+-- INSERT INTO trials (customer_id, rug_id, trial_start_date, trial_expected_end_date, trial_end_date)
+-- VALUES
+--     (1, 1, '12/01/17', '12/18/17', '12/14/17');
 
 
-SELECT customer_id, rug_id, sale_date, sale_price
-    FROM purchases
-    INNER JOIN rugs
-    INNER JOIN customers;
+-- SELECT customer_id, rug_id, sale_date, sale_price
+--     FROM purchases
+--     INNER JOIN rugs
+--     INNER JOIN customers;
